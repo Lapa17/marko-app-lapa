@@ -1,0 +1,21 @@
+<div.block>
+    <p.subtitle.is-6>
+       <strong> ${input.name}</strong>
+    </p>
+    <for|stock| of=input.stock>
+    ${console.log(stock[input.category])}
+        <if(stock[input.category])>
+            <if(stock[input.second_category])>
+            <div>
+                <label.checkbox><input type="checkbox"/> ${stock[input.category]} ${stock[input.second_category]}</label>
+            </div>
+            </if>
+            <else>
+            <div>
+                <label.checkbox><input type="checkbox"/> ${stock[input.category]}</label>
+            </div>
+            </else>
+        </if>
+    </for>
+
+</div>

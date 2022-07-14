@@ -1,0 +1,36 @@
+<div.box>
+              <div.columns>
+                <div.column.is-3>
+                  <figure.image.is-4by3>
+                    <img.has-ratio src=`../../assets/img/2.jpg` alt="Image">
+                  </figure>
+                </div>
+                <div.content.column.is-9>
+                  <div.columns>
+                    <div.column.is-10>
+
+                      <p><strong>${input.stock.title}</strong></p>
+                      <p>
+                        Item Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quis distinctio, officia tenetur a eaque deleniti, impedit accusamus, alias provident sint id odio neque laudantium! Saepe quisquam libero soluta itaque?${" "}
+                      </p>
+                      <div.tags.are-medium>
+                        <span.tag>${input.stock.year}</span>
+                        <span.tag>
+                          ${input.stock.mileage} ${input.stock.mileage_measure}
+                        </span>
+                        <span.tag>${input.stock.axle_configuration}</span>
+                      </div>
+                    </div>
+                    <div.column.is-three-quarters-mobile.is-two-thirds-tablet.is-half-desktop.is-one-third-widescreen.is-one-quarter-fullhd>
+                      <if(input.stock.price_currency == "USD")>
+                        <span>${"$ "}</span>
+                      </if>
+                      <if(input.stock.price_currency == "EUR")>
+                        <span>${"€ "}</span>
+                      </if>
+                      ${input.stock.price}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>

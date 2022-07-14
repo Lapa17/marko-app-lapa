@@ -1,146 +1,40 @@
 import { getData } from "../api/api";
 import bulma from "bulma";
+import data from "../assets/data/data.json"
 
-<layout title="Welcome to Marko">
-
-  <marko-header/>
+<layout meta=data.page_meta title="Welcome to Marko">
+  <marko-header data=data.nav/>
   <main.columns>
-    <await(getData())>
-      <!-- <@placeholder>
-    </@placeholder> -->
-      <@then|res|>
-      ${console.log(res.data)}
-        <div.column.is-one-quarter>
-          <div.box>
-            <h1>${res.data.stock.length} Position</h1>
-            <div>
-              Price
-              <div.columns>
-                  <div.column.is-4><input.input.is-small type="text" placeholder="min" /></div>
-                  <div.column.is-4><input.input.is-small type="text" placeholder="max" /></div>
-              </div>
-            </div>
-            <div>
-              Model
-              <for|stock| of=res.data.stock>
-              <if(stock.model)>
-              <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                      ${stock.model}
-              </label>
-              </div>
-              </if>
-              </for>  
-            </div>
-            <div>
-              Power
-              <for|stock| of=res.data.stock>
-              <if(stock.power && stock.power_measure)>
-                <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                      ${stock.power} ${stock.power_measure}
-              </label>
-              </div>
-              </if>
-              </for>  
-            </div>
-            <div>
-              Payload
-              <for|stock| of=res.data.stock>
-              <if(stock.payload)>
-              <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                      ${stock.payload}
-              </label>
-              </div>
-              </if>
-              </for>  
-            </div>
-            <div>
-              Gross weight
-              <for|stock| of=res.data.stock>
-              <if(stock.gross_weight)>
-              <div>
-                <label class="checkbox">
-                  <input type="checkbox">
-                      ${stock.gross_weight}
-              </label>
-              </div>
-              </if>
-              </for>  
-            </div>
-            <button.button>
-              Search
-            </button>
-          </div>
+        <div.column.is-one-fifth>
+          <marko-filter data=data.stock/>
         </div>
         
         <div.column>
           <nav.breadcrumb aria-label="breadcrumbs">
             <ul>
-              <for|breadcrumb| of=res.data.breadcrumbs>
-              <if(breadcrumb === res.data.breadcrumbs[res.data.breadcrumbs.length -1])>
-                <li.is-active><a href=`${breadcrumb.href}`>${breadcrumb.text}</a></li>
+              <for|breadcrumb| of=data.breadcrumbs>
+              <if(breadcrumb === data.breadcrumbs[data.breadcrumbs.length -1])>
+                <marko-breadcrumb breadcrumb=breadcrumb active='is-active'/>
               </if>
               <else>
-                <li><a href=`${breadcrumb.href}`>${breadcrumb.text}</a></li>
+                <marko-breadcrumb breadcrumb=breadcrumb/>
               </else>
               </for>
             </ul>
           </nav>
           <h1.title.is-3>
-            ${res.data.page_meta.h1}
+            ${data.page_meta.h1}
           </h1>
-          <for|stock| of=(res.data.stock)>
-            <div.box>
-              <div.columns>
-                <div.column.is-3>
-                  <figure.image.is-4by3>
-                    <img.has-ratio src=`../assets/img/2.jpg` alt="Image">
-                  </figure>
-                </div>
-                <div.content.column.is-9>
-                  <div.columns>
-                    <div.column.is-10>
-
-                      <p><strong>${stock.title}</strong></p>
-                      <p>
-                        Item Description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quis distinctio, officia tenetur a eaque deleniti, impedit accusamus, alias provident sint id odio neque laudantium! Saepe quisquam libero soluta itaque?${" "}
-                      </p>
-                      <div.tags.are-medium>
-                        <span.tag>${stock.year}</span>
-                        <span.tag>
-                          ${stock.mileage} ${stock.mileage_measure}
-                        </span>
-                        <span.tag>${stock.axle_configuration}</span>
-                      </div>
-                    </div>
-                    <div.column.is-three-quarters-mobile.is-two-thirds-tablet.is-half-desktop.is-one-third-widescreen.is-one-quarter-fullhd>
-                      <if(stock.price_currency == "USD")>
-                        <span>${"$ "}</span>
-                      </if>
-                      <if(stock.price_currency == "EUR")>
-                        <span>${"€ "}</span>
-                      </if>
-                      ${stock.price}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <for|stock| of=(data.stock)>
+            <marko-card stock=stock/>
           </for>
           <div.content>
-            <for|text| of=(res.data.page_text)>
+            <for|text| of=(data.page_text)>
               <${text.tag}>${text.content}</>
             </for>
 
           </div>
         </div>
-      </@then>
-    </await>
   </main>
   <footer.footer.columns>
     <div.column.is-one-quarter>
