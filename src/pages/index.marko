@@ -1,41 +1,37 @@
 import { getData } from "../api/api";
 import bulma from "bulma";
-import data from "../assets/data/data.json"
+import data from "../assets/data/data.json";
 
 <layout meta=data.page_meta title="Welcome to Marko">
-  <marko-header data=data.nav/>
-  <main.columns>
-        <div.column.is-one-fifth>
-          <marko-filter data=data.stock/>
-        </div>
-        
-        <div.column>
-          <nav.breadcrumb aria-label="breadcrumbs">
-            <ul>
-              <for|breadcrumb| of=data.breadcrumbs>
-              <if(breadcrumb === data.breadcrumbs[data.breadcrumbs.length -1])>
-                <marko-breadcrumb breadcrumb=breadcrumb active='is-active'/>
-              </if>
-              <else>
-                <marko-breadcrumb breadcrumb=breadcrumb/>
-              </else>
-              </for>
-            </ul>
-          </nav>
-          <h1.title.is-3>
-            ${data.page_meta.h1}
-          </h1>
-          <for|stock| of=(data.stock)>
-            <marko-card stock=stock/>
-          </for>
-          <div.content>
-            <for|text| of=(data.page_text)>
-              <${text.tag}>${text.content}</>
-            </for>
+  <marko-header navigation=data.nav/>
+  <div.container>
+    <main.columns>
+      <div.column.is-one-fifth><marko-filter data=data.stock/></div>
 
-          </div>
+      <div.column>
+        <nav.breadcrumb aria-label="breadcrumbs">
+          <ul>
+            <for|breadcrumb| of=data.breadcrumbs>
+              <if(breadcrumb === data.breadcrumbs[data.breadcrumbs.length - 1])>
+                <marko-breadcrumb breadcrumb=breadcrumb active="is-active"/>
+              </if>
+              <else><marko-breadcrumb breadcrumb=breadcrumb/></else>
+            </for>
+          </ul>
+        </nav>
+        <h1.title.is-3>${data.page_meta.h1}</h1>
+        <for|stock| of=data.stock>
+          <marko-card stock=stock/>
+        </for>
+        <marko-pagination />
+        <div.content>
+          <for|text| of=data.page_text>
+            <${text.tag}>${text.content}</>
+          </for>
         </div>
-  </main>
+      </div>
+    </main>
+  </div>
   <footer.footer.columns>
     <div.column.is-one-quarter>
       <div><img src="https://bulma.io/images/bulma-logo.png" width=140></div>
