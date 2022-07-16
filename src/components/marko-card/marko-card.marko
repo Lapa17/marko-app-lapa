@@ -1,5 +1,6 @@
 <div.box>
               <div.columns>
+              ${console.log(input.stock)}
                 <div.column.is-3>
                   <figure.image.is-4by3>
                     <img.has-ratio src=`../../assets/img/2.jpg` alt="Image">
@@ -19,6 +20,10 @@
                           ${input.stock.mileage} ${input.stock.mileage_measure}
                         </span>
                         <span.tag>${input.stock.axle_configuration}</span>
+                        <span.tag>${input.stock.type}</span>
+                        <span.tag>${input.stock.make}</span>
+                        <span.tag>${input.stock.model}</span>
+                        <span.tag>${input.stock.power} ${input.stock.power_measure}</span>
                       </div>
                     </div>
                     <div.column.is-three-quarters-mobile.is-two-thirds-tablet.is-half-desktop.is-one-third-widescreen.is-one-quarter-fullhd>

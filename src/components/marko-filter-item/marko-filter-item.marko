@@ -1,21 +1,49 @@
-<div.block>
-    <p.subtitle.is-6>
+
+
+static function deleteDuplicate(a) {
+  for (var q=1, i=1; q<a.length; ++q) {
+    if (a[q] !== a[q-1]) {
+      a[i++] = a[q];
+    }
+  }
+
+  a.length = i;
+  return new Set(a);
+}
+
+$ let arr = input.stock.map(l => l[input.category])
+$ let category = deleteDuplicate(arr)
+
+class {
+   onCreate(){
+      this.state = {open:true}
+   } 
+   onToggle() {
+        this.state.open = !this.state.open
+    }
+}
+
+
+<div.block  >
+    <p.subtitle.is-6 onclick('onToggle')>
        <strong> ${input.name}</strong>
+       <span class="icon"><i class="fa-solid fa-angle-down"></i></span>
     </p>
-    <for|stock| of=input.stock>
-    ${console.log(stock[input.category])}
-        <if(stock[input.category])>
-            <if(stock[input.second_category])>
+    <div class=`${state.open ? 'open' : 'collapsed'}`>
+    <for|value| of=category>
+        <if(value)>
+            <if(input.category === 'power')>
             <div>
-                <label.checkbox><input type="checkbox"/> ${stock[input.category]} ${stock[input.second_category]}</label>
+                <label.checkbox><input type="checkbox"/> ${value} hp</label>
             </div>
             </if>
             <else>
             <div>
-                <label.checkbox><input type="checkbox"/> ${stock[input.category]}</label>
+                <label.checkbox><input type="checkbox"/> ${value}</label>
             </div>
             </else>
         </if>
     </for>
+    </div>
 
 </div>
