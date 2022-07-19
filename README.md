@@ -1,23 +1,15 @@
-# Thanks for checking out Marko
+# Demo
 
-# Installation
+### [https://marko-app-lapa.herokuapp.com/](https://marko-app-lapa.herokuapp.com/)
 
-```
-npx @marko/create marko-app --template basic
-cd marko-app
-npm install
-npm run dev
-```
 
-## Overview
+# Что не получилось реализовать
 
-This project is powered by `@marko/serve` and `@marko/build`.
+1. Неправильный путь изображений: когда прописываешь путь к файлу напрямую - все работает, но путь показывает какой-то относительный + добавляется хэш в название файла. Когда вместо названия изображения я вставлял переменную с данными из data.json - изображения не подгружались.
 
-- Run `npm run dev` to start the development server
-- Run `npm run build` to build a production-ready node.js server
-- Run `npm start` to run the production server
+2. Изначально сделал реализацию подгрузки файла с данными через get запрос по прямой ссылке, потом поменял на отдельный файл data.json в корне. Не понимаю как через HtmlWebpackPlugin нужно было загонять на страницу датасет.
 
-## Adding Pages
 
-Pages map to the directory structure. You can add additional pages by creating files/directories under `src/pages` with `.marko` files.  Learn more in the [`@marko/serve` docs](https://github.com/marko-js/cli/blob/master/packages/serve/README.md).
+
+
 
