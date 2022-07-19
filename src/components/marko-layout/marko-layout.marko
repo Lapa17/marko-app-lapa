@@ -1,4 +1,5 @@
 import favicon from "./favicon.png";
+import '../../assets/style/global.style.scss'
 
 <!doctype html>
 <html lang="en">
@@ -11,23 +12,8 @@ import favicon from "./favicon.png";
   <title>${input.meta.title}</title>
   <link rel="stylesheet" href="../../assets/style/iconsfont.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="../marko-filter-item/style.css">
 </head>
 <body>
   <${input.renderBody}/>
 </body>
 </html>
-
-style {
-  html, body {
-    font-family: system-ui;
-    padding: 0;
-    margin: 0;
-  }
-  code {
-    color: #fc0;
-  }
-  a {
-    color: #09c;
-  }
-}

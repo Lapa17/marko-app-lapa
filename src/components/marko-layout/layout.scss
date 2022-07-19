@@ -1,0 +1,16 @@
+html, body {
+    font-family: system-ui;
+    padding: 0;
+    margin: 0;
+  }
+
+.primary {
+    background-color: $primary-color;
+    border: none ;
+}
+
+@media (max-width:600px) {
+    main.columns{
+        margin: 0;
+    }
+}
