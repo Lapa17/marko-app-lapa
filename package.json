@@ -17,6 +17,6 @@
   "scripts": {
     "build": "marko-build ./src/pages",
     "dev": "marko-serve ./src/pages",
-    "start": "NODE_ENV=production node ./build/index.js"
+    "start": "node ./build/index.js"
   }
 }
