@@ -3,7 +3,6 @@
   "description": "The default Marko starter app",
   "version": "1.0.0",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.1.1",
     "bulma": "^0.9.4",
     "marko": "^5",
     "sass": "^1.53.0",

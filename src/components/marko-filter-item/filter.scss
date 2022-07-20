@@ -5,4 +5,15 @@ main.columns:last-child{
 .collapsed{
     display: none;
 }
-
+.filter-button{
+    display: none;
+    @media (max-width: $tablet) {
+         display: block;
+         margin-bottom: 10px;
+    }
+}
+.filter-wrapper{
+    @media (max-width: $tablet) {
+        display: none;
+   }
+}

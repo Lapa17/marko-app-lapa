@@ -1,8 +1,14 @@
 $primary-color: #ed5234 !important;
+$mobile: 426px;
+$tablet: 769px;
+$laptop: 1025px;
 
 
 @import '../../components/marko-layout/layout.scss';
+@import '../../components/marko-header/header.scss';
 @import '../../components/marko-filter-item/filter.scss';
 @import '../../components/marko-footer/footer.scss';
+@import '../style/icons/fontawesome.scss';
+@import '../style/icons/solid.scss';
 
 
