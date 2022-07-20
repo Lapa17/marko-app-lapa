@@ -1,36 +1,86 @@
 class {
-   onCreate(){
-      this.state = {openFilter:true, headerOpen:true}
-   } 
-   onToggle() {
-        this.state.openFilter = !this.state.openFilter
-    }
-    onHeaderClick() {
-      this.state.headerOpen = !this.state.headerOpen
-    }
+  onCreate() {
+    this.state = { openFilter: true, headerOpen: false };
+  }
+  onToggle() {
+    this.state.openFilter = !this.state.openFilter;
+  }
+  onFilterClickHandler() {
+    this.state.headerOpen = !this.state.headerOpen;
+  }
 }
 
+<button.button.is-info.primary.filter-button onclick("onFilterClickHandler")>
+  Filter
+</button>
+<div class=`box filter-wrapper`>
 
-<div.box>
-            <h1.title.is-6 onclick("onHeaderClick")><strong>Filter: ${input.data.length} Position</strong> <span class="icon"><i class="fa-solid fa-angle-down"></i></span></h1>
-            <div class=`filter ${state.headerOpen ? 'open' : 'collapsed'}`>
-            <div.block >
-              <p.subtitle.is-6 onclick('onToggle')>
-                <strong>Price</strong><span class="icon"><i class="fa-solid fa-angle-down"></i></span>
-              </p>
-              <div  class=`${state.openFilter ? 'open' : 'collapsed'}`>
-              <div.columns>
-                  <div.column.is-6><input.input.is-small type="text" placeholder="min" /></div>
-                  <div.column.is-6><input.input.is-small type="text" placeholder="max" /></div>
-              </div>
-              </div>
-            </div>
-            <marko-filter-item stock=input.data name="Model" category='model'/>
-            <marko-filter-item stock=input.data name="Power" category='power'/>
-            <marko-filter-item stock=input.data name="Payload" category='payload'/>
-            <marko-filter-item stock=input.data name="Gross weight" category='gross_weight'/>
-            <div.block.columns.is-centered> <button.button.is-info.primary>
-              Search
-            </button> </div>
-           </div>
+  <div.filter>
+    <h1.title.is-6><strong>Filter: ${input.data.length} Position</strong></h1>
+    <div.block>
+      <p.subtitle.is-6 onclick("onToggle")>
+        <strong>Price</strong>
+        <span.icon><i.fa-solid.fa-angle-down/></span>
+      </p>
+      <div class=`${state.openFilter ? "open" : "collapsed"}`>
+        <div.columns>
+          <div.column.is-6>
+            <input.input.is-small type="text" placeholder="min">
           </div>
+          <div.column.is-6>
+            <input.input.is-small type="text" placeholder="max">
+          </div>
+        </div>
+      </div>
+    </div>
+    <marko-filter-item stock=input.data name="Model" category="model"/>
+    <marko-filter-item stock=input.data name="Power" category="power"/>
+    <marko-filter-item stock=input.data name="Payload" category="payload"/>
+    <marko-filter-item
+      stock=input.data
+      name="Gross weight"
+      category="gross_weight"
+    />
+    <div.block.columns.is-centered>
+
+      <button.button.is-info.primary>Search</button>
+
+    </div>
+  </div>
+</div>
+
+<div class=`box filter-wrapper-mobile ${state.headerOpen ? "open" : "collapsed"}`>
+
+  <div.filter>
+    <h1.title.is-6><strong>Filter: ${input.data.length} Position</strong></h1>
+    <div.block>
+      <p.subtitle.is-6 onclick("onToggle")>
+        <strong>Price</strong>
+        <span.icon><i.fa-solid.fa-angle-down/></span>
+      </p>
+      <div class=`${state.openFilter ? "open" : "collapsed"}`>
+        <div.columns>
+          <div.column.is-6>
+            <input.input.is-small type="text" placeholder="min">
+          </div>
+          <div.column.is-6>
+            <input.input.is-small type="text" placeholder="max">
+          </div>
+        </div>
+      </div>
+    </div>
+    <marko-filter-item stock=input.data name="Model" category="model"/>
+    <marko-filter-item stock=input.data name="Power" category="power"/>
+    <marko-filter-item stock=input.data name="Payload" category="payload"/>
+    <marko-filter-item
+      stock=input.data
+      name="Gross weight"
+      category="gross_weight"
+    />
+    <div.block.columns.is-centered>
+
+      <button.button.is-info.primary>Search</button>
+
+    </div>
+  </div>
+</div>
