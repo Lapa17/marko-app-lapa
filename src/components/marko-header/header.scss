@@ -1,0 +1,14 @@
+.navbar-menu.is-active{
+    @media (max-width:$laptop) {
+        text-align: center;
+    }
+}
+.navbar-end{
+    .navbar-item{
+        .buttons{
+            @media (max-width:$laptop) {
+                justify-content: center;
+            }
+        }
+    }
+}

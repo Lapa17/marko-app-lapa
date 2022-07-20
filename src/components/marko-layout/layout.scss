@@ -10,7 +10,7 @@ html, body {
     border: none ;
 }
 
-@media (max-width:600px) {
+@media (max-width:$tablet) {
     main.columns{
         margin: 0;
     }
